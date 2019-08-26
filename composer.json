@@ -1,0 +1,25 @@
+{
+    "name": "devsergeev/inn-validator",
+    "description": "Inn validator",
+    "keywords": ["inn-validator", "inn validator", "inn", "validator", "checksum"],
+    "type": "validator",
+    "authors": [
+        {
+            "name": "devsergeev",
+            "email": "sergeev.vasily.v@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8",
+        "roave/security-advisories": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "devsergeev\\validators\\": "src"
+        }
+    }
+}
