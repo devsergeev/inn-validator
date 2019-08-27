@@ -23,7 +23,10 @@ class InnValidatorTest extends TestCase
      */
     public function testCheckInvalidControlsum(string $inn): void
     {
-        $this->expectExceptionWithMessage(InnValidator::MESSAGE_INVALID_CHECKSUM);
+        $this->expectExceptionWithMessageAndCode(
+            InnValidator::$messageInvalidChecksum,
+            InnValidator::CODE_INVALID_CHECKSUM
+        );
         InnValidator::check($inn);
     }
 
@@ -33,7 +36,10 @@ class InnValidatorTest extends TestCase
      */
     public function testCheckInvalidLenght(string $inn): void
     {
-        $this->expectExceptionWithMessage(InnValidator::MESSAGE_INVALID_LENGHT);
+        $this->expectExceptionWithMessageAndCode(
+            InnValidator::$messageInvalidLenght,
+            InnValidator::CODE_INVALID_LENGHT
+        );
         InnValidator::check($inn);
     }
 
@@ -43,7 +49,10 @@ class InnValidatorTest extends TestCase
      */
     public function testCheckInnWithNotOnlyDigits(string $inn): void
     {
-        $this->expectExceptionWithMessage(InnValidator::MESSAGE_NOT_ONLY_DIGITS);
+        $this->expectExceptionWithMessageAndCode(
+            InnValidator::$messageOnlyDigits,
+            InnValidator::CODE_NOT_ONLY_DIGITS
+        );
         InnValidator::check($inn);
     }
 
@@ -67,9 +76,10 @@ class InnValidatorTest extends TestCase
         return [['ghfdsaerƢµ'], ['okptertewqer'], ['ваывавыкеу'], ['(Ͱ)-+=;4№"'], ['चीनीअक्षर1']];
     }
 
-    private function expectExceptionWithMessage(string $message): void
+    private function expectExceptionWithMessageAndCode(string $message, int $code): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage($message);
+        $this->expectExceptionCode($code);
     }
 }
