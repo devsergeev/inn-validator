@@ -13,9 +13,9 @@ class InnValidator
     public const CODE_NOT_ONLY_DIGITS  = 2;
     public const CODE_INVALID_CHECKSUM = 3;
 
-    public static $messageInvalidLength   = 'ИНН должен иметь длину 10 (физлицо) или 12 (юрлицо) символов';
-    public static $messageOnlyDigits      = 'ИНН должен состоять только из цифр';
-    public static $messageInvalidChecksum = 'ИНН недействителен (неверная контрольная сумма)';
+    public static string $messageInvalidLength   = 'ИНН должен иметь длину 10 (физлицо) или 12 (юрлицо) символов';
+    public static string $messageOnlyDigits      = 'ИНН должен состоять только из цифр';
+    public static string $messageInvalidChecksum = 'ИНН недействителен (неверная контрольная сумма)';
 
     /**
      * Проверяет ИНН на валидность по последней (для Физлиц) или двум последним (для Юрлиц) символам
@@ -51,8 +51,8 @@ class InnValidator
      */
     private static function checkChecksum(array $innSymbols, int $checkInnIndex): void
     {
-        $checksum     = 0;
-        $offset       = 11 - $checkInnIndex;
+        $checksum = 0;
+        $offset = 11 - $checkInnIndex;
         $coefficients = [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8];
         for ($innIndex = 0; isset($coefficients[$innIndex + $offset]); $innIndex++) {
             $checksum += (int)$innSymbols[$innIndex] * $coefficients[$innIndex + $offset];

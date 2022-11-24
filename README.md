@@ -63,3 +63,24 @@ try {
     echo $message;
 }
 ````
+
+## Docker-compose для разработки
+
+Создать docker-compose
+````
+docker-compose -f ./docker/docker-compose.yml --env-file ./docker/.env up
+````
+Запустить bash
+````
+docker-compose -f ./docker/docker-compose.yml --env-file ./docker/.env run --rm bash
+````
+
+Установить зависимости
+````
+composer install
+````
+
+Запустить тесты
+````
+vendor/bin/phpunit
+````
