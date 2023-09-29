@@ -13,7 +13,7 @@ class InnValidator
     public const CODE_NOT_ONLY_DIGITS  = 2;
     public const CODE_INVALID_CHECKSUM = 3;
 
-    public static string $messageInvalidLength   = 'ИНН должен иметь длину 10 (физлицо) или 12 (юрлицо) символов';
+    public static string $messageInvalidLength   = 'ИНН должен иметь длину 10 (юрлицо) или 12 (физлицо) символов';
     public static string $messageOnlyDigits      = 'ИНН должен состоять только из цифр';
     public static string $messageInvalidChecksum = 'ИНН недействителен (неверная контрольная сумма)';
 
