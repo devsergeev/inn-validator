@@ -72,7 +72,7 @@ docker-compose -f ./docker/docker-compose.yml --env-file ./docker/.env up
 ````
 Запустить bash
 ````
-docker-compose -f ./docker/docker-compose.yml --env-file ./docker/.env run --rm bash
+docker-compose -f ./docker/docker-compose.yml --env-file ./docker/.env run --rm php-cli bash
 ````
 
 Установить зависимости
